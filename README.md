@@ -10,25 +10,25 @@ Just do it.
 
 ### Prerequisites
 [Jquery](https://jquery.com/)
-```
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
 ```
 
 ### Installing
 Insert the .css
-```
+```html
 <link rel="stylesheet" href="jquery.table-shrinker.min.css">
 ```
 
 Insert the .js
-```
+```html
 <script src="jquery.table-shrinker.min.js"></script>
 ```
 
 ## How to use
 First, add <b>shrink</b> class to the table you want to be shrinked
 
-```javascript
+```html
   <table class="shrink">
 ```
 Next, instantiate the plugin right after the DOM finished rendering
@@ -42,7 +42,7 @@ Next, instantiate the plugin right after the DOM finished rendering
 ```
 
 And finally, add <b>shrink-XX</b> or <b>shrinkable</b> classes to the header to tell them when you want them to be shrinked
-```javascript
+```html
 <thead>
   <tr>
     <th> User-ID </th> <!-- never shrinks -->
@@ -58,7 +58,7 @@ And finally, add <b>shrink-XX</b> or <b>shrinkable</b> classes to the header to 
 
 Additionally, there's a <b>shrinkable</b> class which make texts containers responsive
 The is usefull if you like to keep displaying a large info in tiny devices, preventing texts to breakline.
-``` javascript
+``` html
   <th class="shrinkable"> Full Name </th>
 ```
 
@@ -104,7 +104,7 @@ A list of two html's that is toggled when wrapper collapses, you can add classes
 You can instantly render the table at the first graphic engine loop of the browser by adding the same <b>shrink-XX</b> and <b>shrinkable</b> classes that you used on the table headers to every table cell
 <br>
 For example:
-```javascript
+```html
 <thead>
   <tr>
     <th> User-ID </th> <!-- never shrinks -->
@@ -134,7 +134,7 @@ There's no impact in performance speed, the only downside of this is that if you
 #### Larger than desktops
 If you want to show more data in the same table but even desktops width can't handle, just keep adding columns with <br>shrink-xl</br>
 
-```javascript
+```html
     (...)
     <th class="shrink-xl" > Addtional Info </th> 
     <th class="shrink-xl" > Addtional Info </th> 
