@@ -41,7 +41,7 @@ Next, instantiate the plugin right after the DOM finished rendering
     $("table.shrink").tableShrinker(options)
 ```
 
-And finally, add <b>shrink-XX</b> or <b>shrinkable</b> classes to the header to tell them when you want them to be shrinked
+And finally, add <b>shrink-XX</b> classes to the header to tell them when you want them to be shrinked
 ```html
 <thead>
   <tr>
