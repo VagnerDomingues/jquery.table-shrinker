@@ -68,7 +68,6 @@
         },
         toogleShrinkContent: function (e){
             if ($(e.target).is(this.settings.ignoreWhenHit)){
-                e.stopPropagation();
                 return
             }
             if (window.getSelection().type != "Range"){
