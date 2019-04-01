@@ -46,7 +46,6 @@ And finally, add <b>shrink-XX</b> classes to the header to tell them when you wa
 <thead>
   <tr>
     <th> User-ID </th> <!-- never shrinks -->
-    <th class="shrink-xxs"> Age </th> <!-- shrinks @ 320px  -->
     <th class="shrink-xs" > First Name </th> <!-- shrinks @ 480px  -->
     <th class="shrink-sm" > Last Name </th> <!-- shrinks @ 768px  -->
     <th class="shrink-md" > e-mail </th> <!-- shrinks @ 992px  -->
@@ -108,7 +107,7 @@ For example:
 <thead>
   <tr>
     <th> User-ID </th> <!-- never shrinks -->
-    <th class="shrink-xxs"> Age </th>
+    <th class="shrink-xs"> Age </th>
     <th class="shrink-xs shrinkable" > Full Name </th>
     <th class="shrink-md" > e-mail </th>
     <th class="shrink-lg" > Phone number </th>
@@ -117,7 +116,7 @@ For example:
 <tbody>
   <tr>
     <td> #0001 </td>
-    <td class="shrink-xxs"> 27 </td>
+    <td class="shrink-xs"> 27 </td>
     <td class="shrink-xs shrinkable" > Hubert Blaine Wolfe­schlegel­stein­hausen­berger­dorff Sr. </td>
     <td class="shrink-md" > H_B@wolfe.com </td>
     <td class="shrink-lg" > +(66) 666.66666-6666 </td>
