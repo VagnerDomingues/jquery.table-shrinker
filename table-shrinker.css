@@ -1,0 +1,101 @@
+table.shrink tr:not(.shrink-wrapper):not(.blank-row){
+    cursor: pointer;
+}
+
+.shrinkable{
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.shrink-toggler{
+    font-size: 32px;
+    line-height: 16px;
+    text-align: right;
+    display: none;
+    cursor: pointer;
+}
+.shrink-toggler>span{
+    opacity: 0.5;
+}
+.shrink-toggler>span:hover{
+    opacity: 1;
+}
+
+tr.shrink-wrapper, tr.shrink-wrapper td{
+    max-width: 100%;
+    padding: 0px!important;
+    border: none!important;
+    margin-top: 0px!important;
+}
+tr.shrink-wrapper td div.shrink-row{
+    float: left;
+    width: 100%;
+    white-space: normal!important;
+    padding: 0;
+    transition: background-color 0.6s;
+}
+tr.shrink-wrapper td div.shrink-row div{
+    float: left;
+    padding: 2px 4px;
+    width: 100%;
+}
+
+tr.shrink-wrapper td div.shrink-row.odd{background-color: rgba(0,0,0,0.1)}
+tr.shrink-wrapper td div.shrink-row.even{background-color: rgba(0,0,0,0.25)}
+
+tr.shrink-wrapper td div.shrink-row{width: 100%}
+tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 25%}
+tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 75%}
+
+.unshrink-xxs, .unshrink-xs, .unshrink-sm, .unshrink-md, .unshrink-lg, .unshrink-xl, .unshrinkable{ display: none!important}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 17%}
+    tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 83%}
+
+    .shrinkable{max-width: 180px}
+    .shrink-lg{display: none!important}
+    .unshrink-lg{display: block!important}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 23%}
+    tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 77%}
+
+    .shrinkable{max-width: 140px}
+    .shrink-md{display: none!important}
+    .unshrink-md{display: block!important}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 35%}
+    tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 65%}
+
+    .shrinkable{max-width: 120px}
+    .shrink-sm{display: none!important}
+    .unshrink-sm{display: block!important}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 40%}
+    tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 60%}
+
+    .shrinkable{max-width: 100px}
+    .shrink-xs{display: none!important}
+    .unshrink-xs{display: block!important}
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    tr.shrink-wrapper td div.shrink-row div div{width: 100%!important}
+
+    .shrinkable{max-width: 80px}
+    .shrink-xxs{display: none!important}
+    .unshrink-xxs{display: block!important}
+}
