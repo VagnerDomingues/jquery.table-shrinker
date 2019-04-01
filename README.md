@@ -56,7 +56,7 @@ And finally, add <b>shrink-XX</b> classes to the header to tell them when you wa
 ```
 
 Additionally, there's a <b>shrinkable</b> class which make texts containers responsive
-The is usefull if you like to keep displaying a large info in tiny devices, preventing texts to breakline.
+This is usefull if you like to keep displaying a large info cell in a tiny devices, preventing its texts to breakline.
 ``` html
   <th class="shrinkable"> Full Name </th>
 ```
