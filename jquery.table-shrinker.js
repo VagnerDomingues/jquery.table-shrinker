@@ -44,7 +44,7 @@
                 let r = $(this).after('<tr class="blank-row"></tr>').after('<tr class="shrink-wrapper"><td colspan="99"></td></tr>')
                 $ths.each(function (hId) {
                     if($(this)[0].className.match('shrinkable')) r.find('td').eq(hId).addClass('shrinkable')
-                    var re = new RegExp('(?:shrink-)(..)[ ]?');
+                    var re = new RegExp('(?:shrink-)([a-z]*)[^ ]?');
                     let result = $(this)[0].className.match(re);
                     if (result) {
                         if(rId == 0) {_suffixes = _suffixes + ' ' + result[1]}
