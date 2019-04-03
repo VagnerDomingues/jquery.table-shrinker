@@ -46,6 +46,7 @@ And finally, add <b>shrink-XX</b> classes to the header to tell them when you wa
 <thead>
   <tr>
     <th> User-ID </th> <!-- never shrinks -->
+    <th class="shrink-xxs" > First Name </th> <!-- shrinks @ 320px  -->
     <th class="shrink-xs" > First Name </th> <!-- shrinks @ 480px  -->
     <th class="shrink-sm" > Last Name </th> <!-- shrinks @ 768px  -->
     <th class="shrink-md" > e-mail </th> <!-- shrinks @ 992px  -->
