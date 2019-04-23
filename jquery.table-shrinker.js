@@ -26,23 +26,24 @@
     $.extend(Plugin.prototype, {
         init: function () {
             // local variables
-            var _showToggler = this.settings.showToggler;
-            let _toggler = this.settings.customToggler;
+            let _this = this;
+            let _showToggler = _this.settings.showToggler;
+            let _toggler = _this.settings.customToggler;
 
             let _suffixes = ''
 
-            // local elements
-            let $t = $('table.shrink');
-            let $ths = $t.find('thead th');
-            let $trs = $t.find('tbody tr');
+            // instance variables
+            _this.$t = $(_this.element);
+            _this.$ths = _this.$t.find('thead th');
+            _this.$trs = _this.$t.find('tbody tr');
 
             // Init values
-            this._transitionSpeed = this.settings.useTransitions == true ? this.settings.transitionSpeed : 0;
-            this._currentSize = Math.max(document.documentElement.clientWidth, $(window).width() || 0);
+            _this._transitionSpeed = _this.settings.useTransitions == true ? _this.settings.transitionSpeed : 0;
+            _this._currentSize = Math.max(document.documentElement.clientWidth, $(window).width() || 0);
 
-            $trs.each(function (rId){
+            _this.$trs.each(function (rId){
                 let r = $(this).after('<tr class="blank-row"></tr>').after('<tr class="shrink-wrapper"><td colspan="99"></td></tr>')
-                $ths.each(function (hId) {
+                _this.$ths.each(function (hId) {
                     if($(this)[0].className.match('shrinkable')) r.find('td').eq(hId).addClass('shrinkable')
                     var re = new RegExp('(?:shrink-)([a-z]*)[^ ]?');
                     let result = $(this)[0].className.match(re);
@@ -60,10 +61,10 @@
             if(_showToggler) _suffixes.trim().split(" ").forEach(function (val){ $('td.shrink-toggler').addClass('unshrink-' + val)})
 
             // Bind events
-            $t.not('tr:not(:has(th)):not(.shrink-wrapper)').on("click", this.toogleShrinkContent.bind(this));
+            _this.$t.not('tr:not(:has(th)):not(.shrink-wrapper)').on("click", _this.toogleShrinkContent.bind(_this));
 
-            if (this.settings.useObserver) {
-                this.createObserverEvent();
+            if (_this.settings.useObserver) {
+                _this.createObserverEvent();
             }
         },
         toogleShrinkContent: function (e){
