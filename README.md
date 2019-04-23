@@ -1,7 +1,7 @@
 # jquery.table-shrinker
 A fast-render, lightweight plugin to turn tables responsive the right way.
 <br/>
-Turn your hugest table into a compact table with a great user experience.
+Turn enourmous tables into compact tables with a great user experience.
 
 ![table-shrinker](https://user-images.githubusercontent.com/5666881/55237489-0b5bd480-5211-11e9-933b-552d340cbae3.png)
 
