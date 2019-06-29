@@ -9,93 +9,112 @@ table.shrink tr:not(.shrink-wrapper):not(.blank-row){
     text-overflow: ellipsis;
 }
 
-.shrink-toggler{
-    font-size: 32px;
-    line-height: 16px;
+.shrink-toggle-all{
+    text-shadow: 0px 6px;
+}
+
+.shrink-toggle, .shrink-toggle-all{
+    font-size: 18px;
+    padding-right: 12px!important;
+    padding-top: 12px!important;
+    line-height: normal;
+    vertical-align: middle;
     text-align: right;
     display: none;
     cursor: pointer;
-}
-.shrink-toggler>span{
     opacity: 0.5;
 }
-.shrink-toggler>span:hover{
+
+.shrink-toggle:hover, .shrink-toggle-all:hover{
     opacity: 1;
 }
 
-tr.shrink-wrapper, tr.shrink-wrapper td{
+tr.shrink-wrapper, tr.shrink-wrapper>td{
     max-width: 100%;
     padding: 0px!important;
     border: none!important;
     margin-top: 0px!important;
 }
-tr.shrink-wrapper td div.shrink-row{
+
+tr.shrink-wrapper>td div.shrink-row{
     float: left;
     width: 100%;
     white-space: normal!important;
     padding: 0;
     transition: background-color 0.6s;
 }
-tr.shrink-wrapper td div.shrink-row div{
+
+tr.shrink-wrapper>td div.shrink-row div{
     float: left;
-    padding: 2px 4px;
     width: 100%;
 }
 
-tr.shrink-wrapper td div.shrink-row.odd{background-color: rgba(0,0,0,0.1)}
-tr.shrink-wrapper td div.shrink-row.even{background-color: rgba(0,0,0,0.25)}
+tr.shrink-wrapper>td div.shrink-row:not(.has-table)>div>div{
+    padding: 4px 4px;
+}
 
-tr.shrink-wrapper td div.shrink-row{width: 100%}
-tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 25%}
-tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 75%}
+tr.shrink-wrapper>td>div.shrink-row.has-table>div>div>div,
+tr.shrink-wrapper>td>div.shrink-row.has-table>div>div{
+    width: 100%!important;
+}
+
+tr.shrink-wrapper>td div.shrink-row.odd{background-color: rgba(0,0,0,0.1)}
+tr.shrink-wrapper>td div.shrink-row.even{background-color: rgba(0,0,0,0.25)}
+
+tr.shrink-wrapper>td div.shrink-row{width: 100%}
+tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(odd){width: 25%}
+tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(even){width: 75%}
 
 .unshrink-xxs, .unshrink-xs, .unshrink-sm, .unshrink-md, .unshrink-lg, .unshrink-xl, .unshrinkable{ display: none!important}
 
+.shrink-xl{display: none!important}
+.unshrink-xl{display: table-cell!important}
+
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
-    tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 17%}
-    tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 83%}
+    tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(odd){width: 17%}
+    tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(even){width: 83%}
 
     .shrinkable{max-width: 180px}
     .shrink-lg{display: none!important}
-    .unshrink-lg{display: block!important}
+    .unshrink-lg{display: table-cell!important}
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-    tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 23%}
-    tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 77%}
+    tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(odd){width: 23%}
+    tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(even){width: 77%}
 
     .shrinkable{max-width: 140px}
     .shrink-md{display: none!important}
-    .unshrink-md{display: block!important}
+    .unshrink-md{display: table-cell!important}
 }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-    tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 35%}
-    tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 65%}
+    tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(odd){width: 35%}
+    tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(even){width: 65%}
 
     .shrinkable{max-width: 120px}
     .shrink-sm{display: none!important}
-    .unshrink-sm{display: block!important}
+    .unshrink-sm{display: table-cell!important}
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
-    tr.shrink-wrapper td div.shrink-row div div:nth-child(odd){width: 40%}
-    tr.shrink-wrapper td div.shrink-row div div:nth-child(even){width: 60%}
+    tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(odd){width: 40%}
+    tr.shrink-wrapper>td div.shrink-row>div>div:nth-child(even){width: 60%}
 
     .shrinkable{max-width: 100px}
     .shrink-xs{display: none!important}
-    .unshrink-xs{display: block!important}
+    .unshrink-xs{display: table-cell!important}
 }
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width : 320px) {
-    tr.shrink-wrapper td div.shrink-row div div{width: 100%!important}
+    tr.shrink-wrapper>td div.shrink-row>div>div{width: 100%!important}
 
     .shrinkable{max-width: 80px}
     .shrink-xxs{display: none!important}
-    .unshrink-xxs{display: block!important}
+    .unshrink-xxs{display: table-cell!important}
 }

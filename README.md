@@ -13,6 +13,13 @@ A fast-render, lightweight plugin to turn tables responsive the right way.
 * Couldn't find another plugin in the web which support chained tables. (ie: tables within tables)
 * It's free, lightweight and don't rely in any major js lib other than jquery.
 
+
+## What are its limitations?
+
+* It does not support irregular headers. (ie: vertical headers)
+* It does not support multiline headers.
+* It does not support colspan attr.
+
 ### Prerequisites
 [Jquery](https://jquery.com/)
 ```html
@@ -38,12 +45,12 @@ First, add <b>shrink</b> class to the table you want to be shrinked
 ```
 Next, instantiate the plugin right after the DOM finished rendering.
 ```javascript
-    options = {
-          useZebra: false     // i don't like zebras
-          useObserver: false  // turned off observer because i really don't like zebras
-        }
-        
-    $("table.shrink").tableShrinker(options)
+  options = {
+        useZebra: false     // i don't like zebras
+        useObserver: false  // turned off observer because i really don't like zebras
+      }
+
+  $("table.shrink").tableShrinker(options)
 ```
 If you are designing a table that will have another table that uses the tableShrinker inside its cells, you should call chained() method before the initializer.
 ```javascript
@@ -110,7 +117,6 @@ You can disable the toggle icon and still show/hide the shrinked content by hiti
 #### customToggleAll
 ###### default: ['\<span\>˅\<\/span\>','\<span\>˄\<\/span\>]
 A list of two html's that alternate when all wrapper collapses, you can add classes or change it's content and control the toggle's design using your own css rules.
-
 #### loadCollapsed
 ###### default: null
 If true, forces all shrinked elements to be visible on window first load, else it will look for load-collapsed classes for each table separately.
@@ -118,8 +124,18 @@ If true, forces all shrinked elements to be visible on window first load, else i
 
 
 ### Hints
+#### Load Collapsed
+
+To start with all rows collapsed is to add "load-collapsed" class to the table.
+
+```html
+      <table class="shrink load-collapsed">
+          (...)
+      </table>
+```
+
 #### Instant Load
-You can instantly render the table at the first graphic engine loop of the browser by adding the same <b>shrink-XX</b> and <b>shrinkable</b> classes that you used on the table headers to every table cell
+The table can be instantly rendered at the first graphic engine loop of the browser by adding the same <b>shrink-XX</b> and <b>shrinkable</b> classes that you used on the table headers to every table cell
 <br>
 For example:
 ```html
@@ -140,7 +156,7 @@ For example:
     <td class="shrink-md" > H_B@wolfe.com </td>
     <td class="shrink-lg" > +(66) 666.66666-6666 </td>
   </tr>
-  <tr> 
+  <tr>
   (...)
 </tbody>
 ```
@@ -154,21 +170,21 @@ If you want to show more data in the same table but even desktops width can't ha
 
 ```html
     (...)
-    <th class="shrink-xl" > Addtional Info </th> 
-    <th class="shrink-xl" > Addtional Info </th> 
+    <th class="shrink-xl" > Addtional Info </th>
+    <th class="shrink-xl" > Addtional Info </th>
   </tr>
 </thead>
 ```
 <br>
 
 
-#### Collapsed chained tables
-To add a collapsable table for each row you can combine the previous 'XL' hint and the chained() method.
+#### Collapsable Chained Tables
+To add a collapsable table row you can combine the previous 'XL' hint and the chained() method.
 
 ```html
 <thead>
   <tr>
-    <th> User-ID </th> 
+    <th> User-ID </th>
     <th> Username </th>
     <th class="shrink-xl"> UserData </th> <!-- blank headers for the table cell -->
   </tr>
@@ -178,8 +194,8 @@ To add a collapsable table for each row you can combine the previous 'XL' hint a
     <td> #0001 </td>
     <td class="shrink-xs"> Foo </td>
     <td>
-      <table class="table-shrinker">  <!-- table with a bunch of Foo's user data -->
-          (...) 
+      <table class="shrink">  <!-- table with a bunch of Foo's user data -->
+          (...)
       </table>
     </td>
   </tr>
@@ -187,8 +203,8 @@ To add a collapsable table for each row you can combine the previous 'XL' hint a
     <td> #0002 </td>
     <td class="shrink-xs"> Bar </td>
     <td>
-      <table class="table-shrinker">  <!-- table with a bunch of Bar's user data -->
-          (...) 
+      <table class="shrink">  <!-- table with a bunch of Bar's user data -->
+          (...)
       </table>
     </td>
   </tr>
