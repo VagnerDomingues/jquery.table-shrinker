@@ -186,7 +186,7 @@ To add a collapsable table row you can combine the previous 'XL' hint and the ch
   <tr>
     <th> User-ID </th>
     <th> Username </th>
-    <th class="shrink-xl"> </th> <!-- blank headers for the user data table cell -->
+    <th class="shrink-xl"> </th> <!-- blank headers for the user data table cell (optional) -->
   </tr>
 </thead>
 <tbody>
