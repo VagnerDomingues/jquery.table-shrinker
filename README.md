@@ -192,8 +192,8 @@ To add a collapsable table row you can combine the previous 'XL' hint and the ch
 <tbody>
   <tr>
     <td> #0001 </td>
-    <td class="shrink-xs"> Foo </td>
-    <td>
+    <td> Foo </td>
+    <td class="shrink-xl">
       <table class="shrink">  <!-- table with a bunch of Foo's user data -->
           (...)
       </table>
@@ -201,8 +201,8 @@ To add a collapsable table row you can combine the previous 'XL' hint and the ch
   </tr>
   <tr>
     <td> #0002 </td>
-    <td class="shrink-xs"> Bar </td>
-    <td>
+    <td> Bar </td>
+    <td class="shrink-xl">
       <table class="shrink">  <!-- table with a bunch of Bar's user data -->
           (...)
       </table>
