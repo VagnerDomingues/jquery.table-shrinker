@@ -6,7 +6,7 @@ A fast-render, lightweight plugin to turn tables responsive the right way.
 
 ## Why should you use it?
 
-* Has 10 customizable usefull properties.
+* Highly customizable page-breaks.
 * Won't break your table's primordial design, it uses css only to re-structure table for mobile.
 * Designed to attend fat-fingers concept to prevent missclicking, you can tap anywhere in the row and it will trigger the collapser.
 * You can maintain all previous functions working anywhere inside the elements of the table. (ie: a dropdown in table headers)
@@ -43,11 +43,10 @@ First, add <b>shrink</b> class to the table you want to be shrinked
 ```html
   <table class="shrink">
 ```
-Next, instantiate the plugin right after the DOM finished rendering.
+Next, start the plugin right after the DOM finished rendering.
 ```javascript
   options = {
         useZebra: false     // i don't like zebras
-        useObserver: false  // turned off observer because i really don't like zebras
       }
 
   $("table.shrink").tableShrinker(options)
@@ -89,11 +88,6 @@ Below there's the options explanation and some hints of use.
 #### useZebra
 ###### default: true
 Table rows inside wrapper became striped.
-#### useObserver
-###### default: true
-update Zebra whenever a new cell becomes visible in the wrapper.
-<br/>
-not supported for older browsers check compatibility [here](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#Browser_compatibility).
 #### useTransitions
 ###### default: true
 Animate when collapsing the wrapper.
@@ -101,10 +95,10 @@ Animate when collapsing the wrapper.
 ###### default: 300
 name says it all.
 #### ignoreWhenHit
-###### default: 'button, a, .btn'
-If you have a share button on each row you might want to ignore it.
+###### default: 'input, button, a, .btn'
+If you have a customized radiobutton or selectbox on each row you might want to ignore them too. you can add then to this selector.
 <br>
-so if any tap/click event hit one of these elements it's event propagation is stoped, this way buttons can keep their functionality inside the table.
+so if any tap/click event hit any of these elements it's event propagation is stoped, and they keep their functionality inside the shrinked table container.
 #### showToggle
 ###### default: true
 You can disable the toggle icon and still show/hide the shrinked content by hiting the anywhere in the row (except for the ignoreWhenHit elements).
@@ -123,16 +117,21 @@ If true, forces all shrinked elements to be visible on window first load, else i
 
 
 
-### Hints
-#### Load Collapsed
-
-To start with all rows collapsed is to add "load-collapsed" class to the table.
-
+### Quick Tips
+#### Classname Property Controls
+You can add "shrink-[property-name]" classes to each individual table to control their behaviour separately, this way you can call the plugin constructor just once. just remember to not override their defaults on options array.
+<br>
+- shrink-use-zebra
+- shrink-show-toggle-all
+- shrink-show-toggle
+- shrink-load-collapsed
+For example:
 ```html
-      <table class="shrink load-collapsed">
+      <table class="shrink shrink-load-collapsed  ">
           (...)
       </table>
 ```
+
 
 #### Instant Load
 The table can be instantly rendered at the first graphic engine loop of the browser by adding the same <b>shrink-XX</b> and <b>shrinkable</b> classes that you used on the table headers to every table cell
@@ -166,7 +165,7 @@ There's no impact in performance speed, the only downside of this is that if you
 
 
 #### Larger than desktops
-If you want to show more data in the same table but even desktops width can't handle, just keep adding columns with <br>shrink-xl</br>
+If you want to show more data in the same table but even desktops width can't handle, just keep adding columns with <b>shrink-xl</b>
 
 ```html
     (...)
@@ -178,6 +177,28 @@ If you want to show more data in the same table but even desktops width can't ha
 <br>
 
 
+#### Blank Header
+You can use a blank header to add a full-width column, perphaps you want to shrink just a single button.. in this case:
+```html
+<thead>
+  <tr>
+    <th> User-ID </th>
+    <th> Username </th>
+    <th class="shrink-xs"> </th> <!-- blank headers -->
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td> #0001 </td>
+    <td> Foo </td>
+    <td> <!-- this becomes full width when shrinked -->
+      <button type='button'> Click me! </button> <!-- you can customize the container of this cell to go full width too in your own css -->
+    </td>
+  </tr>
+</tbody>
+```
+
+
 #### Collapsable Chained Tables
 To add a collapsable table row you can combine the previous 'XL' hint and the chained() method.
 
@@ -186,15 +207,15 @@ To add a collapsable table row you can combine the previous 'XL' hint and the ch
   <tr>
     <th> User-ID </th>
     <th> Username </th>
-    <th class="shrink-xl"> </th> <!-- blank headers for the user data table cell (optional) -->
+    <th class="shrink-xl"> </th> <!-- shrink-xl / blank headers -->
   </tr>
 </thead>
 <tbody>
   <tr>
     <td> #0001 </td>
     <td> Foo </td>
-    <td class="shrink-xl">
-      <table class="shrink">  <!-- table with a bunch of Foo's user data -->
+    <td>
+      <table class="shrink"> <!-- start shrinked / full width table -->
           (...)
       </table>
     </td>
@@ -202,8 +223,8 @@ To add a collapsable table row you can combine the previous 'XL' hint and the ch
   <tr>
     <td> #0002 </td>
     <td> Bar </td>
-    <td class="shrink-xl">
-      <table class="shrink">  <!-- table with a bunch of Bar's user data -->
+    <td>
+      <table class="shrink"> <!-- start shrinked / full width table -->
           (...)
       </table>
     </td>
