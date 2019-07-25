@@ -2,7 +2,7 @@
 
 [![NPM](https://img.shields.io/npm/v/jquery.table-shrinker.svg?style=flat-square)](https://www.npmjs.com/package/jquery.table-shrinker)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f47a225f5044aa491cc77ed7361a983)](https://app.codacy.com/app/VagnerDomingues/jquery.table-shrinker?utm_source=github.com&utm_medium=referral&utm_content=VagnerDomingues/jquery.table-shrinker&utm_campaign=Badge_Grade_Dashboard)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/VagnerDomingues/jquery.table-shrinker/blob/master/LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/VagnerDomingues/jquery.table-shrinker/blob/master/LICENSE)
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2FVagnerDomingues%2Fjquery.table-shrinkers&hashtags=jquery,developers,frontend,plugin,table,responsivity,responsive,table-shrinker,responsive-table,bootstrap)
 
 <!-- Uncomment it when you prepare a githubpage using docsify to document.
