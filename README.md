@@ -1,6 +1,15 @@
 # jquery.table-shrinker
 
-A fast-render, lightweight plugin to turn tables responsive the right way.
+[![NPM](https://img.shields.io/npm/v/docsify-example-panels.svg?style=flat-square)](https://www.npmjs.com/package/jquery.table-shrinker)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f47a225f5044aa491cc77ed7361a983)](https://app.codacy.com/app/VagnerDomingues/jquery.table-shrinker?utm_source=github.com&utm_medium=referral&utm_content=VagnerDomingues/jquery.table-shrinker&utm_campaign=Badge_Grade_Dashboard)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/VagnerDomingues/jquery.table-shrinker/blob/master/LICENSE)
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2FVagnerDomingues%2Fjquery.table-shrinkers&hashtags=jquery,developers,frontend,plugin,table,responsivity,responsive,table-shrinker,responsive-table,bootstrap)
+
+<!-- Uncomment it when you prepare a githubpage using docsify to document.
+<a class="github-button" href="https://github.com/VagnerDomingues/jquery.table-shrinker" data-icon="octicon-star" data-show-count="true" aria-label="Star VagnerDomingues/jquery.table-shrinker on GitHub">Star</a> -->
+
+A [Jquery](https://jquery.com) plugin to make HTML Table responsive across all devices, the right way!
+
 <br/>
 
 ![table-shrinker](https://user-images.githubusercontent.com/5666881/55237489-0b5bd480-5211-11e9-933b-552d340cbae3.png)
@@ -11,7 +20,7 @@ A fast-render, lightweight plugin to turn tables responsive the right way.
 -   It Won't break your table's primordial design, it uses css only to re-structure table for mobile.
 -   It's Designed to attend fat-fingers concept to prevent missclicking, you can tap anywhere in the row and it will trigger the collapser.
 -   You can maintain all previous functions working anywhere inside the elements of the table. (ie: a dropdown in table headers)
--   It's free, lightweight and don't rely in any major js lib other than jquery.
+-   It's free, it's fast and it's lightweight.
 -   I think it's unique... I couldn't find another plugin in the web which support **nested tables**. (ie: tables within tables)
 
 ## Limitations
