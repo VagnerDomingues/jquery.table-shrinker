@@ -1,10 +1,10 @@
 # jquery.table-shrinker
 
-[![NPM](https://img.shields.io/npm/v/jquery.table-shrinker.svg?style=flat-square)](https://www.npmjs.com/package/jquery.table-shrinker)
+<!-- Uncomment it when you upload it to npmjs
+[![NPM](https://img.shields.io/npm/v/jquery.table-shrinker.svg?style=flat-square)](https://www.npmjs.com/package/jquery.table-shrinker)-->
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f47a225f5044aa491cc77ed7361a983)](https://app.codacy.com/app/VagnerDomingues/jquery.table-shrinker?utm_source=github.com&utm_medium=referral&utm_content=VagnerDomingues/jquery.table-shrinker&utm_campaign=Badge_Grade_Dashboard)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/VagnerDomingues/jquery.table-shrinker/blob/master/LICENSE)
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2FVagnerDomingues%2Fjquery.table-shrinkers&hashtags=jquery,developers,frontend,plugin,table,responsivity,responsive,table-shrinker,responsive-table,bootstrap)
-
 <!-- Uncomment it when you prepare a githubpage using docsify to document.
 <a class="github-button" href="https://github.com/VagnerDomingues/jquery.table-shrinker" data-icon="octicon-star" data-show-count="true" aria-label="Star VagnerDomingues/jquery.table-shrinker on GitHub">Star</a> -->
 
