@@ -47,7 +47,7 @@ jQuery.fn.chained = [].reverse;
     }
 
     $.extend(Plugin.prototype, {
-        init: function () {
+        init() {
             // local variables
             let _this = this;
             let _toggle = _this.settings.customToggle;
@@ -71,7 +71,7 @@ jQuery.fn.chained = [].reverse;
             _this.$trs.each(function (rId){
                 let r = $(this).addClass("shrink-row").after("<tr class=\"blank-row\"></tr>").after("<tr class=\"shrink-wrapper\"><td colspan=\"99\"></td></tr>");
                 _this.$ths.each(function (hId) {
-                    if(r.children("td").attr("colspan") != null){return}//ignore if has colspan
+                    if(r.children("td").attr("colspan") != null){return;}//ignore if has colspan
                     if($(this)[0].className.match("shrinkable")){r.find("td").eq(hId).addClass("shrinkable");}
                     let re = new RegExp("(?:shrink-)([a-z]*)[^ ]?");
                     let result;
@@ -123,7 +123,7 @@ jQuery.fn.chained = [].reverse;
 
             if (_loadCollapsed){_this.$t.find(">thead>tr").click();}
         },
-        toggle: function (e){
+        toggle(e){
             if ($(e.target).is(this.settings.ignoreWhenHit)){
                 return;
             }
@@ -136,10 +136,10 @@ jQuery.fn.chained = [].reverse;
 
                 if($(e.target).parents("table").first().hasClass("shrink-use-zebra")){updateZebra();}
 
-                setTimeout(function(){ updateCollapsed();}, this.transitionSpeed);
-            };
+                setTimeout(function(){updateCollapsed();}, this.transitionSpeed);
+            }
         },
-        toggleAll: function (e){
+        toggleAll(e){
             if ($(e.target).is(this.settings.ignoreWhenHit)){
                 return;
             }
@@ -157,14 +157,14 @@ jQuery.fn.chained = [].reverse;
 
                 if($(e.target).parents("table").first().hasClass("shrink-use-zebra")){updateZebra();}
 
-                setTimeout(function(){ updateCollapsed()}, this.transitionSpeed);
+                setTimeout(function(){updateCollapsed();}, this.transitionSpeed);
             }
         },
-        updateToggle : function(wrapper, toggleState){
+        updateToggle(wrapper, toggleState){
             let _showToggle = this.settings.showToggle === true ? true : $(this.element).hasClass("shrink-show-toggle");
             if(_showToggle){wrapper.prev("tr").children(".shrink-toggle").first().html(this.settings.customToggle[toggleState]);}
         },
-        updateToggleAll : function(table, toggleState){
+        updateToggleAll(table, toggleState){
             let _showToggleAll = this.settings.showToggleAll === true ? true : table.hasClass("shrink-show-toggle-all");
             let _showToggle = this.settings.showToggle === true ? true : table.hasClass("shrink-show-toggle");
 
