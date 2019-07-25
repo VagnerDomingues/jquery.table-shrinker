@@ -2,6 +2,7 @@
 
 <!-- Uncomment it when you upload it to npmjs
 [![NPM](https://img.shields.io/npm/v/jquery.table-shrinker.svg?style=flat-square)](https://www.npmjs.com/package/jquery.table-shrinker)-->
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/petk/awesome-jquery#tables)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9f47a225f5044aa491cc77ed7361a983)](https://app.codacy.com/app/VagnerDomingues/jquery.table-shrinker?utm_source=github.com&utm_medium=referral&utm_content=VagnerDomingues/jquery.table-shrinker&utm_campaign=Badge_Grade_Dashboard)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/VagnerDomingues/jquery.table-shrinker/blob/master/LICENSE)
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2FVagnerDomingues%2Fjquery.table-shrinkers&hashtags=jquery,developers,frontend,plugin,table,responsivity,responsive,table-shrinker,responsive-table,bootstrap)
