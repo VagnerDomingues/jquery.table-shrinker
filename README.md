@@ -5,16 +5,16 @@ A fast-render, lightweight plugin to turn tables responsive the right way.
 
 ![table-shrinker](https://user-images.githubusercontent.com/5666881/55237489-0b5bd480-5211-11e9-933b-552d340cbae3.png)
 
-## Why should you use it?
+## You should use it because..
 
--   Highly customizable page-breaks.
--   Won't break your table's primordial design, it uses css only to re-structure table for mobile.
--   Designed to attend fat-fingers concept to prevent missclicking, you can tap anywhere in the row and it will trigger the collapser.
+-   It has highly customizable page-breaks.
+-   It Won't break your table's primordial design, it uses css only to re-structure table for mobile.
+-   It's Designed to attend fat-fingers concept to prevent missclicking, you can tap anywhere in the row and it will trigger the collapser.
 -   You can maintain all previous functions working anywhere inside the elements of the table. (ie: a dropdown in table headers)
--   Couldn't find another plugin in the web which support chained tables. (ie: tables within tables)
 -   It's free, lightweight and don't rely in any major js lib other than jquery.
+-   I think it's unique... I couldn't find another plugin in the web which support **nested tables**. (ie: tables within tables)
 
-## What are its limitations?
+## Limitations
 
 -   It does not support irregular headers. (ie: vertical headers)
 -   It does not support multiline headers.
@@ -60,7 +60,7 @@ Next, start the plugin right after the DOM finished rendering.
   $("table.shrink").tableShrinker(options)
 ```
 
-If you are designing a table that will have another table that uses the tableShrinker inside its cells, you should call chained() method before the initializer.
+If you need a table that will have another table inside it and both will use the tableShrinker to shrink their contents, you should call chained() method before the initializer.
 
 ```javascript
   $("table.shrink").chained().tableShrinker(options)
@@ -101,25 +101,25 @@ Below there's the options explanation and some hints of use.
 
 #### useZebra
 
-###### default: true
+**default: true**
 
 Table rows inside wrapper became striped.
 
 #### useTransitions
 
-###### default: true
+**default: true**
 
 Animate when collapsing the wrapper.
 
 #### transitionSpeed
 
-###### default: 300
+**default: 300**
 
 name says it all.
 
 #### ignoreWhenHit
 
-###### default: 'input, button, a, .btn'
+**default: "input, button, a, .btn"**
 
 If you have a customized radiobutton or selectbox on each row you might want to ignore them too. you can add then to this selector.
 <br>
@@ -127,31 +127,31 @@ so if any tap/click event hit any of these elements it's event propagation is st
 
 #### showToggle
 
-###### default: true
+**default: true**
 
 You can disable the toggle icon and still show/hide the shrinked content by hiting the anywhere in the row (except for the ignoreWhenHit elements).
 
 #### customToggle
 
-###### default: ['\<span\>˅\<\/span\>','\<span\>˄\<\/span\>]
+**default: ["\<span\>˅\<\/span\>","\<span\>˄\<\/span\>"]**
 
 A list of two html's that alternate when wrapper collapses, you can add classes or change it's content and control the toggle's design using your own css rules.
 
 #### showToggleAll
 
-###### default: true
+**default: true**
 
 You can disable the toggle icon and still show/hide the shrinked content by hiting the anywhere in the row (except for the ignoreWhenHit elements).
 
 #### customToggleAll
 
-###### default: ['\<span\>˅\<\/span\>','\<span\>˄\<\/span\>]
+**default: ["\<span\>˅\<\/span\>","\<span\>˄\<\/span\>"]**
 
 A list of two html's that alternate when all wrapper collapses, you can add classes or change it's content and control the toggle's design using your own css rules.
 
 #### loadCollapsed
 
-###### default: null
+**default: null**
 
 If true, forces all shrinked elements to be visible on window first load, else it will look for load-collapsed classes for each table separately.
 
@@ -163,9 +163,13 @@ You can add "shrink-[property-name]" classes to each individual table to control
 <br>
 
 -   shrink-use-zebra
+
 -   shrink-show-toggle-all
+
 -   shrink-show-toggle
+
 -   shrink-load-collapsed
+
     For example:
 
 ```html
@@ -244,7 +248,7 @@ You can use a blank header to add a full-width column, perphaps you want to shri
 </tbody>
 ```
 
-#### Collapsable Chained Tables
+#### Collapsable Nested Tables
 
 To add a collapsable table row you can combine the previous 'XL' hint and the chained() method.
 

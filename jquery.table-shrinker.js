@@ -1,4 +1,23 @@
 var resizeEvent;
+
+function updateCollapsed(){
+    $("tr.shrink-row + tr.shrink-wrapper:visible").each(function(id, e){
+        if($(e).height()){$(e).prev("tr").addClass("collapsed");}
+        else{$(e).prev("tr").removeClass("collapsed");}
+    });
+};
+
+function updateZebra(){
+    setTimeout(function(){
+        $(".shrink.shrink-use-zebra tr.shrink-row + tr.shrink-wrapper:visible").each(function(){
+            $(this).find("> td > div.shrinked-row:not(:has(table)) div:visible").each(function (i) {
+                $(this).parent().removeClass("even odd");
+                $(this).parent().addClass(i % 2 === 0 ? "even": "odd");
+            });
+        });
+    }, 300);
+};
+
 jQuery.fn.chained = [].reverse;
 (function ($, window, document) {
     "use strict";
@@ -46,14 +65,14 @@ jQuery.fn.chained = [].reverse;
             _this.$trs = _this.$t.children("tbody").first().find("> tr");
             _this.transitionSpeed = _this.settings.useTransitions === true ? _this.settings.transitionSpeed : 0;
 
-            if(_useZebra){_this.$t.addClass("shrink-use-zebra")};
+            if(_useZebra){_this.$t.addClass("shrink-use-zebra")}
 
             // start shrinkable restructure
             _this.$trs.each(function (rId){
                 let r = $(this).addClass("shrink-row").after("<tr class=\"blank-row\"></tr>").after("<tr class=\"shrink-wrapper\"><td colspan=\"99\"></td></tr>");
                 _this.$ths.each(function (hId) {
                     if(r.children("td").attr("colspan") != null){return}//ignore if has colspan
-                    if($(this)[0].className.match("shrinkable")){r.find("td").eq(hId).addClass("shrinkable")};
+                    if($(this)[0].className.match("shrinkable")){r.find("td").eq(hId).addClass("shrinkable")}
                     let re = new RegExp("(?:shrink-)([a-z]*)[^ ]?");
                     let result;
                     if(r.parents("table").first().find("th").eq(hId)[0]){
@@ -80,14 +99,14 @@ jQuery.fn.chained = [].reverse;
                             //setup toggle
                             if(_showToggle){r.append("<td class=\"shrink-toggle\">"+ _toggle[0] +"</td>");}
                             else{r.append("<td class=\"shrink-toggle\"></td>");}
-                            _suffixes.trim().split(" ").forEach(function (val){r.find("td.shrink-toggle").addClass("unshrink-" + val)});
+                            _suffixes.trim().split(" ").forEach(function (val){r.find("td.shrink-toggle").addClass("unshrink-" + val);});
 
                             //setup toggleAll
                             if(rId === 0 ){
                                 _headerRow = r.parents("table").first().children("thead").children("tr");
                                 if(_showToggleAll){_headerRow.append("<th class=\"shrink-toggle-all\">" + _toggleAll[0] + "</th>");}
                                 else{_headerRow.append("<th class=\"shrink-toggle-all hidden\"></th>");}
-                                _suffixes.trim().split(" ").forEach(function (val){_headerRow.find("th.shrink-toggle-all").addClass("unshrink-" + val)});
+                                _suffixes.trim().split(" ").forEach(function (val){_headerRow.find("th.shrink-toggle-all").addClass("unshrink-" + val);});
                             };
                         };
                     };
@@ -100,22 +119,22 @@ jQuery.fn.chained = [].reverse;
 
             _this.$t.find(".shrinked-row.shrink-has-table table>thead>tr").on("click", _this.toggleAll.bind(_this)); // toggle-all for shrinked tables
 
-            if(_this.$t.parents("table").length === 0){_this.$t.children("tbody").first().children("tr").on("click", _this.toggle.bind(_this));};
+            if(_this.$t.parents("table").length === 0){_this.$t.children("tbody").first().children("tr").on("click", _this.toggle.bind(_this));}
 
-            if (_loadCollapsed) _this.$t.find(">thead>tr").click();
+            if (_loadCollapsed){_this.$t.find(">thead>tr").click();}
         },
         toggle: function (e){
             if ($(e.target).is(this.settings.ignoreWhenHit)){
                 return
             }
-            if (window.getSelection().type != "Range" && !$(e.target).parents("table").first().find(".shrinked-row").is(":animated")){
+            if (window.getSelection().type !== "Range" && !$(e.target).parents("table").first().find(".shrinked-row").is(":animated")){
                 let nextWrapper = $(e.target).closest("tr").next(".shrink-wrapper");
 
                 setTimeout(this.updateToggle(nextWrapper, nextWrapper.find("td>div.shrinked-row > div:visible").length > 0 ? 0 : 1), this.transitionSpeed);
 
                 nextWrapper.find(">td>div.shrinked-row").slideToggle(this.transitionSpeed);
 
-                if($(e.target).parents("table").first().hasClass("shrink-use-zebra")) updateZebra();
+                if($(e.target).parents("table").first().hasClass("shrink-use-zebra")){updateZebra();}
 
                 setTimeout(function(){ updateCollapsed()}, this.transitionSpeed);
             };
@@ -124,7 +143,7 @@ jQuery.fn.chained = [].reverse;
             if ($(e.target).is(this.settings.ignoreWhenHit)){
                 return
             }
-            if (window.getSelection().type != "Range" && !$(e.target).parents("table").first().find(".shrinked-row").is(":animated")){
+            if (window.getSelection().type !== "Range" && !$(e.target).parents("table").first().find(".shrinked-row").is(":animated")){
                 let currentTable = $(e.target).parents("table").first();
 
                 currentTable.toggleClass("shrink-collapsed");
@@ -133,24 +152,24 @@ jQuery.fn.chained = [].reverse;
 
                 setTimeout(this.updateToggleAll(currentTable, isAlreadyCollapsed), this.transitionSpeed);
 
-                if(isAlreadyCollapsed) currentTable.find(">tbody>tr.shrink-wrapper>td>div.shrinked-row:hidden").slideDown(this.transitionSpeed, function(){});
-                else currentTable.find(">tbody>tr.shrink-wrapper>td>div.shrinked-row:visible").slideUp(this.transitionSpeed, function(){});
+                if(isAlreadyCollapsed){currentTable.find(">tbody>tr.shrink-wrapper>td>div.shrinked-row:hidden").slideDown(this.transitionSpeed, function(){});}
+                else{currentTable.find(">tbody>tr.shrink-wrapper>td>div.shrinked-row:visible").slideUp(this.transitionSpeed, function(){});}
 
-                if($(e.target).parents("table").first().hasClass("shrink-use-zebra")) updateZebra();
+                if($(e.target).parents("table").first().hasClass("shrink-use-zebra")){updateZebra();}
 
                 setTimeout(function(){ updateCollapsed()}, this.transitionSpeed);
             }
         },
         updateToggle : function(wrapper, toggleState){
-            let _showToggle = this.settings.showToggle == true ? true : $(this.element).hasClass("shrink-show-toggle");
-            if(_showToggle) wrapper.prev("tr").children(".shrink-toggle").first().html(this.settings.customToggle[toggleState]);
+            let _showToggle = this.settings.showToggle === true ? true : $(this.element).hasClass("shrink-show-toggle");
+            if(_showToggle){wrapper.prev("tr").children(".shrink-toggle").first().html(this.settings.customToggle[toggleState]);}
         },
         updateToggleAll : function(table, toggleState){
-            let _showToggleAll = this.settings.showToggleAll == true ? true : table.hasClass("shrink-show-toggle-all");
-            let _showToggle = this.settings.showToggle == true ? true : table.hasClass("shrink-show-toggle");
+            let _showToggleAll = this.settings.showToggleAll === true ? true : table.hasClass("shrink-show-toggle-all");
+            let _showToggle = this.settings.showToggle === true ? true : table.hasClass("shrink-show-toggle");
 
-            if(_showToggleAll) table.find(">thead>tr>th.shrink-toggle-all").first().html(this.settings.customToggleAll[toggleState]);
-            if(_showToggle) table.find(">tbody>tr>td.shrink-toggle:not(.hidden)").html(this.settings.customToggle[toggleState]);
+            if(_showToggleAll){table.find(">thead>tr>th.shrink-toggle-all").first().html(this.settings.customToggleAll[toggleState]);}
+            if(_showToggle){table.find(">tbody>tr>td.shrink-toggle:not(.hidden)").html(this.settings.customToggle[toggleState]);}
         }
     });
     // A lightweight plugin wrapper around the constructor, preventing against multiple instantiations
@@ -163,25 +182,6 @@ jQuery.fn.chained = [].reverse;
     };
 
 }(jQuery, window, document));
-
-
-function updateCollapsed(){
-    $("tr.shrink-row + tr.shrink-wrapper:visible").each(function(id, e){
-        if($(e).height()) $(e).prev("tr").addClass("collapsed")
-        else $(e).prev("tr").removeClass("collapsed")
-    });
-};
-
-function updateZebra(){
-    setTimeout(function(){
-        $(".shrink.shrink-use-zebra tr.shrink-row + tr.shrink-wrapper:visible").each(function(){
-            $(this).find("> td > div.shrinked-row:not(:has(table)) div:visible").each(function (i) {
-                $(this).parent().removeClass("even odd");
-                $(this).parent().addClass(i % 2 === 0 ? "even": "odd");
-            });
-        });
-    }, 300);
-};
 
 $(window).on("resize", function(){
     updateZebra();
