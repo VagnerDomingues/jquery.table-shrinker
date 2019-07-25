@@ -5,7 +5,7 @@ A fast-render, lightweight plugin to turn tables responsive the right way.
 
 ![table-shrinker](https://user-images.githubusercontent.com/5666881/55237489-0b5bd480-5211-11e9-933b-552d340cbae3.png)
 
-## You should use it because..
+## Reasons you should go for it
 
 -   It has highly customizable page-breaks.
 -   It Won't break your table's primordial design, it uses css only to re-structure table for mobile.
@@ -133,7 +133,7 @@ You can disable the toggle icon and still show/hide the shrinked content by hiti
 
 #### customToggle
 
-**default: ["\<span\>˅\<\/span\>","\<span\>˄\<\/span\>"]**
+**default: \["\<span\>˅\<\/span\>","\<span\>˄\<\/span\>"\]**
 
 A list of two html's that alternate when wrapper collapses, you can add classes or change it's content and control the toggle's design using your own css rules.
 
@@ -145,7 +145,7 @@ You can disable the toggle icon and still show/hide the shrinked content by hiti
 
 #### customToggleAll
 
-**default: ["\<span\>˅\<\/span\>","\<span\>˄\<\/span\>"]**
+**default: \["\<span\>˅\<\/span\>","\<span\>˄\<\/span\>"\]**
 
 A list of two html's that alternate when all wrapper collapses, you can add classes or change it's content and control the toggle's design using your own css rules.
 
@@ -159,7 +159,7 @@ If true, forces all shrinked elements to be visible on window first load, else i
 
 #### Classname Property Controls
 
-You can add "shrink-[property-name]" classes to each individual table to control their behaviour separately, this way you can call the plugin constructor just once. just remember to not override their defaults on options array.
+You can add "shrink-\[property-name\]" classes to each individual table to control their behaviour separately, this way you can call the plugin constructor just once. just remember to not override their defaults on options array.
 <br>
 
 -   shrink-use-zebra

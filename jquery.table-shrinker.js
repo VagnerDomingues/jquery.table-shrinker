@@ -52,10 +52,10 @@ jQuery.fn.chained = [].reverse;
             let _this = this;
             let _toggle = _this.settings.customToggle;
             let _toggleAll = _this.settings.customToggleAll;
-            let _useZebra = _this.settings.useZebra == true ? true : $(_this.element).hasClass("shrink-use-zebra");
-            let _showToggle = _this.settings.showToggle == true ? true : $(_this.element).hasClass("shrink-show-toggle");
-            let _showToggleAll = _this.settings.showToggleAll == true ? true : $(_this.element).hasClass("shrink-show-toggle-all");
-            let _loadCollapsed = _this.settings.loadCollapsed == true ? true : $(_this.element).hasClass("shrink-load-collapsed");
+            let _useZebra = _this.settings.useZebra === true ? true : $(_this.element).hasClass("shrink-use-zebra");
+            let _showToggle = _this.settings.showToggle === true ? true : $(_this.element).hasClass("shrink-show-toggle");
+            let _showToggleAll = _this.settings.showToggleAll === true ? true : $(_this.element).hasClass("shrink-show-toggle-all");
+            let _loadCollapsed = _this.settings.loadCollapsed === true ? true : $(_this.element).hasClass("shrink-load-collapsed");
             let _suffixes = "";
             let _headerRow = null;
 
@@ -65,14 +65,14 @@ jQuery.fn.chained = [].reverse;
             _this.$trs = _this.$t.children("tbody").first().find("> tr");
             _this.transitionSpeed = _this.settings.useTransitions === true ? _this.settings.transitionSpeed : 0;
 
-            if(_useZebra){_this.$t.addClass("shrink-use-zebra")}
+            if(_useZebra){_this.$t.addClass("shrink-use-zebra");}
 
             // start shrinkable restructure
             _this.$trs.each(function (rId){
                 let r = $(this).addClass("shrink-row").after("<tr class=\"blank-row\"></tr>").after("<tr class=\"shrink-wrapper\"><td colspan=\"99\"></td></tr>");
                 _this.$ths.each(function (hId) {
                     if(r.children("td").attr("colspan") != null){return}//ignore if has colspan
-                    if($(this)[0].className.match("shrinkable")){r.find("td").eq(hId).addClass("shrinkable")}
+                    if($(this)[0].className.match("shrinkable")){r.find("td").eq(hId).addClass("shrinkable");}
                     let re = new RegExp("(?:shrink-)([a-z]*)[^ ]?");
                     let result;
                     if(r.parents("table").first().find("th").eq(hId)[0]){
@@ -125,7 +125,7 @@ jQuery.fn.chained = [].reverse;
         },
         toggle: function (e){
             if ($(e.target).is(this.settings.ignoreWhenHit)){
-                return
+                return;
             }
             if (window.getSelection().type !== "Range" && !$(e.target).parents("table").first().find(".shrinked-row").is(":animated")){
                 let nextWrapper = $(e.target).closest("tr").next(".shrink-wrapper");
@@ -136,12 +136,12 @@ jQuery.fn.chained = [].reverse;
 
                 if($(e.target).parents("table").first().hasClass("shrink-use-zebra")){updateZebra();}
 
-                setTimeout(function(){ updateCollapsed()}, this.transitionSpeed);
+                setTimeout(function(){ updateCollapsed();}, this.transitionSpeed);
             };
         },
         toggleAll: function (e){
             if ($(e.target).is(this.settings.ignoreWhenHit)){
-                return
+                return;
             }
             if (window.getSelection().type !== "Range" && !$(e.target).parents("table").first().find(".shrinked-row").is(":animated")){
                 let currentTable = $(e.target).parents("table").first();
@@ -177,7 +177,7 @@ jQuery.fn.chained = [].reverse;
         return this.each(function () {
             if (!$.data(this, "plugin-" + pluginName)) {
                 $.data(this, "plugin-" + pluginName, new Plugin(this, options));
-            };
+            }
         });
     };
 
