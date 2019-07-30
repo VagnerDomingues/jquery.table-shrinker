@@ -26,6 +26,11 @@ table.shrink tr:not(.shrink-wrapper):not(.blank-row){
     opacity: 0.5;
 }
 
+.shrink-toggle.shrink-toggle-left,
+.shrink-toggle-all.shrink-toggle-left{
+    text-align: left!important;
+}
+
 .shrink-toggle:hover, .shrink-toggle-all:hover{
     opacity: 1;
 }

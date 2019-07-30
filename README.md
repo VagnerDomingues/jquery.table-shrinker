@@ -149,15 +149,20 @@ A list of two html's that alternate when wrapper collapses, you can add classes 
 
 #### showToggleAll
 
-**default: true**
+**default: false**
 
-You can disable the toggle icon and still show/hide the shrinked content by hiting the anywhere in the row (except for the ignoreWhenHit elements).
+You can enable the toggle all icon and to display an icon in the header row to collapse all rows at once, even if icon is hidden you can still click anywhere in the header to collapse all rows (except for the ignoreWhenHit elements).
 
 #### customToggleAll
 
 **default: \["\<span\>˅\<\/span\>","\<span\>˄\<\/span\>"\]**
 
 A list of two html's that alternate when all wrapper collapses, you can add classes or change it's content and control the toggle's design using your own css rules.
+
+#### iconsOnLeft
+
+**default: false**
+
 
 #### loadCollapsed
 
@@ -179,6 +184,8 @@ You can add "shrink-\[property-name\]" classes to each individual table to contr
 -   shrink-show-toggle
 
 -   shrink-load-collapsed
+
+-   shrink-icons-on-left
 
     For example:
 

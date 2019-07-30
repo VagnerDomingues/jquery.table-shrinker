@@ -29,8 +29,9 @@ jQuery.fn.chained = [].reverse;
             ignoreWhenHit: "input, button, a, .btn",
             customToggle: ["<span>˅</span>","<span>˄</span>"],
             customToggleAll: ["<span>˅</span>","<span>˄</span>"],
-            showToggle: false,
+            showToggle: true,
             showToggleAll: false,
+            iconsOnLeft: false,
             loadCollapsed: null
         };
 
@@ -55,6 +56,7 @@ jQuery.fn.chained = [].reverse;
             let _useZebra = _this.settings.useZebra === true ? true : $(_this.element).hasClass("shrink-use-zebra");
             let _showToggle = _this.settings.showToggle === true ? true : $(_this.element).hasClass("shrink-show-toggle");
             let _showToggleAll = _this.settings.showToggleAll === true ? true : $(_this.element).hasClass("shrink-show-toggle-all");
+            let _iconsOnLeft = _this.settings.iconsOnLeft === true ? true : $(_this.element).hasClass("shrink-icons-on-left");
             let _loadCollapsed = _this.settings.loadCollapsed === true ? true : $(_this.element).hasClass("shrink-load-collapsed");
             let _suffixes = "";
             let _headerRow = null;
@@ -66,6 +68,7 @@ jQuery.fn.chained = [].reverse;
             _this.transitionSpeed = _this.settings.useTransitions === true ? _this.settings.transitionSpeed : 0;
 
             if(_useZebra){_this.$t.addClass("shrink-use-zebra");}
+            if(_iconsOnLeft){_this.$t.addClass("shrink-icons-on-left");}
 
             // start shrinkable restructure
             _this.$trs.each(function (rId){
@@ -97,15 +100,31 @@ jQuery.fn.chained = [].reverse;
                         if(hId === r.children("td").last().index() && r.children("td:not(:has(table))").length > 0){
 
                             //setup toggle
-                            if(_showToggle){r.append("<td class=\"shrink-toggle\">"+ _toggle[0] +"</td>");}
-                            else{r.append("<td class=\"shrink-toggle\"></td>");}
+
+                            if(_iconsOnLeft){
+                                if(_showToggle){r.prepend("<td class=\"shrink-toggle shrink-toggle-left\">"+ _toggle[0] +"</td>");}
+                                else{r.prepend("<td class=\"shrink-toggle\"></td>");}
+                            }
+                            else{
+                                if(_showToggle){r.append("<td class=\"shrink-toggle\">"+ _toggle[0] +"</td>");}
+                                else{r.append("<td class=\"shrink-toggle\"></td>");}
+                            }
+
                             _suffixes.trim().split(" ").forEach(function (val){r.find("td.shrink-toggle").addClass("unshrink-" + val);});
 
                             //setup toggleAll
-                            if(rId === 0 ){
+                            if(rId === 0 && !_iconsOnLeft || rId === _this.$trs.length -1 &&  _iconsOnLeft){
                                 _headerRow = r.parents("table").first().children("thead").children("tr");
-                                if(_showToggleAll){_headerRow.append("<th class=\"shrink-toggle-all\">" + _toggleAll[0] + "</th>");}
-                                else{_headerRow.append("<th class=\"shrink-toggle-all hidden\"></th>");}
+
+                                if(_iconsOnLeft){
+                                    if(_showToggleAll){_headerRow.prepend("<th class=\"shrink-toggle-all shrink-toggle-left\">" + _toggleAll[0] + "</th>");}
+                                    else{_headerRow.prepend("<th class=\"shrink-toggle-all hidden\"></th>");}
+                                }
+                                else{
+                                    if(_showToggleAll){_headerRow.append("<th class=\"shrink-toggle-all\">" + _toggleAll[0] + "</th>");}
+                                    else{_headerRow.append("<th class=\"shrink-toggle-all hidden\"></th>");}
+                                }
+
                                 _suffixes.trim().split(" ").forEach(function (val){_headerRow.find("th.shrink-toggle-all").addClass("unshrink-" + val);});
                             };
                         };
