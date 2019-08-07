@@ -23,6 +23,7 @@ A [Jquery](https://jquery.com) plugin to make HTML Table responsive across all d
 -   You can maintain all previous functions working anywhere inside the elements of the table. (ie: a dropdown in table headers)
 -   It's free, it's fast and it's lightweight.
 -   I think it's unique... I couldn't find another plugin in the web which support **nested tables**. (ie: tables within tables)
+-   It's simple and fun to use, have fun!
 
 ## Limitations
 
