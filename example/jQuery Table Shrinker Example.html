@@ -1,0 +1,78 @@
+  <!DOCTYPE html>
+<!-- saved from url=(0060)https://www.jqueryscript.net/demo/table-responsive-shrinker/ -->
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>jQuery Table Shrinker Example</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="../jquery.table-shrinker.css" rel="stylesheet">
+
+<body style="background-color: #74B9CC; color:173539">
+  <br/> <br/>
+  <div class="container" style="resize: both;">
+    <h1>jQuery Table Shrinker Example</h1>
+    <p>To view plugin's in action shrink the table by resizing down your viewport width!</p>
+    <br/>
+    <table class="table shrink" style="background:#497480; color:white">
+      <thead>
+        <tr>
+          <th> User-ID </th> <!-- never shrinks -->
+          <th class="shrink-xs"> Age </th>
+          <th class="shrink-xxs shrinkable"> Full Name </th>
+          <th class="shrink-md"> Company </th>
+          <th class=""> Contry </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="shrink-row">
+          <td> #0001 </td>
+          <td class="shrink-xs"> 27 </td>
+          <td class="shrink-xxs shrinkable"> Maria Anders </td>
+          <td class="shrink-md"> Alfreds Futterkiste </td>
+          <td class=""> Germany </td>
+        </tr>
+        <tr class="shrink-row">
+          <td> #0002 </td>
+          <td class="shrink-xs"> 33 </td>
+          <td class="shrink-xxs shrinkable"> Francisco Chang </td>
+          <td class="shrink-md"> Centro Comercial Moctezuma </td>
+          <td class=""> Canada </td>
+        </tr>
+        <tr>
+          <td> #0003 </td>
+          <td class="shrink-xs"> 40 </td>
+          <td class="shrink-xxxs shrinkable"> Hubert Blaine Wolfe­schlegel­stein­hausen­berger­dorff Sr. </td>
+          <td class="shrink-md"> Viktor Yegorovich </td>
+          <td class=""> Russia </td>
+        </tr>
+        <tr>
+          <td> #0004 </td>
+          <td class="shrink-xs"> 24 </td>
+          <td class="shrink-xxs shrinkable"> Josef Klimber </td>
+          <td class="shrink-md"> Paraguai Muambas </td>
+          <td class=""> Brazil </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+  <script src="../jquery.table-shrinker.js"></script>
+  <script>
+    options = {
+      useZebra: true,
+      useObserver: true,
+      showToggle: true,
+      showToggleAll: true,
+    }
+    $("table.shrink").tableShrinker(options)
+  </script>
+
+</html>

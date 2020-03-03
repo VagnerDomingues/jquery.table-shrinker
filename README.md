@@ -15,6 +15,10 @@ A [Jquery](https://jquery.com) plugin to make HTML Table responsive across all d
 
 ![table-shrinker](https://user-images.githubusercontent.com/5666881/55237489-0b5bd480-5211-11e9-933b-552d340cbae3.png)
 
+## Demo
+Click [here to see the demo](https://vagnerdomingues.github.io/jquery.table-shrinker), remember to resize the viewport!
+
+
 ## Reasons you should go for it
 
 -   It has highly customizable page-breaks.
